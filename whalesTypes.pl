@@ -11,12 +11,12 @@ my %whalesDict;		# Whales dictionary for associate array whale pods and countSpe
 
 open my $file, "<", $fileName or die "Could not open file dataWhales.txt\n";   # Attempts to read file dataWhales.txt 
 
-while( my $line =<$file>){         
-    chomp $line;                               # Remove ending newline
-    if($line =~ /$nameOfSpecie/i){
+while(<$file>){         
+    chomp;                               # Remove ending newline
+    if($_ =~ /$nameOfSpecie/i){
     	
 	    my $countSpecimens = 0;
-	    my @words = split(/\s+/, $line);     # Split by spaces (greedy)
+	    my @words = split(/\s+/, $_);     # Split by spaces (greedy)
 	    $countSpecimens = $words[1];
 		
 	    splice @words, 0, 2;				# Remove Date and Number (used previously)

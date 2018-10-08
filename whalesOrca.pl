@@ -8,10 +8,10 @@ my $numberOrcas = 0;                                 		# Counter for how many or
 
 
 open my $file, "<", $fileName or die "Could not open file dataWhales.txt\n"; # Attempts to read file dataWhales.txt
-while( my $line =<$file>){           
-	chomp $line;                               # Remove newline ending
-	if($line =~ /Orca/i){                  # Check if there is a match of the word 'orca' disregarding capitalization
-       my @words = split(/\s+/, $line);     # Split line into words by spaces repeated
+while(<$file>){           
+	chomp;                               # Remove newline ending
+	if($_ =~ /Orca/i){                  # Check if there is a match to the word 'orca' disregarding capitalization
+       my @words = split(/\s+/, $_);     # Split line into words by spaces repeated
        $numberOrcas += $words[1];            # Second index in array is pod of whales 
        
 	}

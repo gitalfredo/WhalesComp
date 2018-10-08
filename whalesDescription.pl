@@ -10,11 +10,11 @@ my %whalesDict;
 
 open my $file, "<", $input or die "Could not open file dataWhales.txt\n";  # Attempts to read file dataWhales.txt 
 
-while( my $line =<$file>){           
-    chomp $line;                      # Remove ending newline
+while(<$file>){           
+    chomp;                      # Remove ending newline
 
     my $countSpecimens = 0;
-    my @words = split(/\s+/, $line);     # Split text line into spaces repeated
+    my @words = split(/\s+/, $_);     # Split text line into spaces repeated
 
     $countSpecimens = $words[1];	# Gets how many specimens there are
     splice @words, 0, 2;
